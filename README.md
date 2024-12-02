@@ -58,7 +58,7 @@ max_temp=55000
 
 ###### 1、联想拯救者2Pro散热风扇
 
-![](./assets/p3.jpg)
+<img title="" src="./assets/p3.jpg" alt="风扇" width="400">
 
 ###### 2、3D打印外壳
 

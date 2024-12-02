@@ -2,7 +2,7 @@
 
 #### 效果展示
 
-<img title="" src="./assets/p1.png" alt="使用效果" width="462">
+<img title="" src="./assets/p1.png" alt="使用效果" width="400">
 
 #### 一、安装与配置
 
@@ -11,12 +11,11 @@
 使用radxa系统中自带的rsetup进行配置overlays
 
 参考资料:`https://docs.radxa.com/zero/zero3/os-config/rsetup`
-
-<img title="" src="./assets/p2.png" alt="配置" width="227">
+<img title="" src="./assets/p2.png" alt="配置" width="400">
 
 ###### 2、焊接风扇(引脚定义和成品外观)
 
-<img title="" src="./assets/p0.png" alt="引脚定义" width="360">
+<img title="" src="./assets/p0.png" alt="引脚定义" width="400">
 
 ###### 3、安装本脚本
 

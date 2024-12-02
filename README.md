@@ -11,6 +11,7 @@
 使用radxa系统中自带的rsetup进行配置overlays
 
 参考资料:`https://docs.radxa.com/zero/zero3/os-config/rsetup`
+
 <img title="" src="./assets/p2.png" alt="配置" width="227">
 
 ###### 2、焊接风扇(引脚定义和成品外观)

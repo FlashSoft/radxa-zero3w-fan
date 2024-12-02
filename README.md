@@ -33,19 +33,17 @@ bash ./install.sh
 radxa-fan
 ```
 
-
-
 #### 使用
 
-###### 启动本脚本
+###### 1、启动本脚本
 
 `systemctl start radxa-fan`
 
-###### 实时查看当前温度和风扇速度
+###### 2、实时查看当前温度和风扇速度
 
 `radxa-fan`
 
-###### 调整温度上下限参数
+###### 3、调整温度上下限参数
 
 `vi /usr/local/bin/radxa-fan`
 
@@ -55,3 +53,17 @@ min_temp=35000
 # 最高温度
 max_temp=55000
 ```
+
+#### 其他资料
+
+###### 1、联想拯救者2Pro散热风扇
+
+![](/Users/flashsoft/TeslaCamDisk/radxa-zero3w-fan/assets/p3.jpg)
+
+###### 2、3D打印外壳
+
+已上传至makeworld [radxa zero 3w带风扇 二次创作 - 来自 flashsoft - MakerWorld](https://makerworld.com.cn/zh/models/695174)
+
+###### 3、散热片
+
+https://radxa.com/products/accessories/heatsink-5519a/

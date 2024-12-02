@@ -58,7 +58,7 @@ max_temp=55000
 
 ###### 1、联想拯救者2Pro散热风扇
 
-![](/Users/flashsoft/TeslaCamDisk/radxa-zero3w-fan/assets/p3.jpg)
+![](./assets/p3.jpg)
 
 ###### 2、3D打印外壳
 

@@ -45,7 +45,7 @@ radxa-fan
 
 `radxa-fan`
 
-###### 调整参数
+###### 调整温度上下限参数
 
 `vi /usr/local/bin/radxa-fan`
 
@@ -54,8 +54,4 @@ radxa-fan
 min_temp=35000
 # 最高温度
 max_temp=55000
-# 最大pwm关断值
-max_pwm=30000
-# PWM引脚
-pwm_chip="pwmchip14"
 ```

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# 开启调试
+debug=1
+
+# 最低温度
+min_temp=35000
+# 最高温度
+max_temp=55000
+# 最大pwm关断值
+max_pwm=30000
+# PWM引脚
+pwm_chip="pwmchip14"
+
+# 检查传入参数
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  --debug)
+    debug="$2"
+    shift # 移除已经处理的参数
+    shift # 移除参数值
+    ;;
+  *)
+    shift # 移除未识别的参数
+    ;;
+  esac
+done
+
+
+if [ $debug -eq 0 ]; then
+  echo '初始化pwm'
+  # 初始化 PWM
+  echo 0 >/sys/class/pwm/$pwm_chip/export 2>/dev/null
+  # 设置频率为 25KHz
+  echo 40000 >/sys/class/pwm/$pwm_chip/pwm0/period
+  echo $max_pwm >/sys/class/pwm/$pwm_chip/pwm0/duty_cycle
+  # 启用 PWM
+  echo 1 >/sys/class/pwm/$pwm_chip/pwm0/enable
+fi
+while true; do
+  curr_temp=$(cat /sys/devices/virtual/thermal/thermal_zone0/temp)
+
+  # 计算温度差比例: 温度差比例 = (当前温度 - 最低温度) / (最高温度 - 最低温度)
+  diff_ratio=$(echo "scale=4; ($curr_temp - $min_temp) / ($max_temp - $min_temp)" | bc)
+  diff_ratio=$(echo "$diff_ratio" | awk '{if ($1 < 0) print 0; else if ($1 > 1) print 1; else print $1}')
+  # 计算PWM比例: 并确保结果是整数
+  pwm_ratio=$(echo "$max_pwm - $diff_ratio * $max_pwm" | bc | awk '{print int($1)}')
+  
+  # 禁用debug的时候写入pwm值
+  if [ $debug -eq 0 ]; then
+    echo $pwm_ratio >/sys/class/pwm/$pwm_chip/pwm0/duty_cycle
+  else
+    curr_temp_human=$(echo "scale=2;$curr_temp / 1000" | bc)
+    curr_pwm_ratio=$(cat /sys/class/pwm/pwmchip14/pwm0/duty_cycle)
+    fan_ratio_human=$(echo "scale=2;(1 - $curr_pwm_ratio / $max_pwm) * 100" | bc | awk '{print int($1)}')
+    echo "$(date +"%T") 温度: $curr_temp_human°C 风扇速度: $fan_ratio_human%"
+  fi
+  sleep 2
+done

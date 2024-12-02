@@ -1,0 +1,11 @@
+[Unit]
+Description=radxa-fan
+After=network.target
+
+[Service]
+ExecStart=radxa-fan --debug 0
+Type=simple
+TimeoutStopSec=infinity
+
+[Install]
+WantedBy=default.target

@@ -51,7 +51,7 @@ while true; do
     echo $pwm_ratio >/sys/class/pwm/$pwm_chip/pwm0/duty_cycle
   else
     curr_temp_human=$(echo "scale=2;$curr_temp / 1000" | bc)
-    curr_pwm_ratio=$(cat /sys/class/pwm/pwmchip14/pwm0/duty_cycle)
+    curr_pwm_ratio=$(cat /sys/class/pwm/$pwm_chip/pwm0/duty_cycle)
     fan_ratio_human=$(echo "scale=2;(1 - $curr_pwm_ratio / $max_pwm) * 100" | bc | awk '{print int($1)}')
     echo "$(date +"%T") 温度: $curr_temp_human°C 风扇速度: $fan_ratio_human%"
   fi

@@ -14,6 +14,9 @@
 
 <img title="" src="./assets/p2.png" alt="配置" width="400">
 
+也可以考虑直接使用shell开启
+`mv /boot/dtbo/rk3568-pwm14-m0.dtbo.disabled /boot/dtbo/rk3568-pwm14-m0.dtbo`
+
 ###### 2、焊接风扇(引脚定义和成品外观)
 
 <img title="" src="./assets/p0.png" alt="引脚定义" width="400">

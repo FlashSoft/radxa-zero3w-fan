@@ -24,10 +24,11 @@
 ###### 3、安装本脚本
 
 ```bash
-wget https://github.com/FlashSoft/radxa-zero3w-fan/archive/refs/heads/main.zip
-unzip main.zip
-cd radxa-zero3w-fan-main
-bash ./install.sh
+curl https://raw.githubusercontent.com/FlashSoft/radxa-zero3w-fan/refs/heads/main/radxa-fan > /usr/local/bin/radxa-fan
+chmod a+x /usr/local/bin/radxa-fan
+curl https://raw.githubusercontent.com/FlashSoft/radxa-zero3w-fan/refs/heads/main/radxa-fan.service > /etc/systemd/system/radxa-fan.service
+systemctl enable radxa-fan
+systemctl start radxa-fan
 ```
 
 ###### 4、查看运行情况
